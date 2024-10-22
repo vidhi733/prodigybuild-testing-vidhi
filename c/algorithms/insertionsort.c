@@ -13,7 +13,12 @@ int main()
         
         if(unsorted[a] < unsorted[b])
         {
-            sorted[a] = unsorted[a];
+            if (sorted[i] > sorted[j])
+            {
+                int temp = sorted[i];
+                sorted[i] = sorted[j];
+                sorted[j] = temp;
+            }
         }
     } while(sizeof(sorted) != sizeof(unsorted));
 }
