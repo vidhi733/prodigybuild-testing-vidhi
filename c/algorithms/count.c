@@ -8,20 +8,16 @@ int count(int num)
     
     if(num > 20)
     {
-        int i;
-        for(i = 0; i < num; i++)
+        for(int i = 0; i < num; i++)
             printf("\n%d, \n", i);
             
-        if(i == num + 1)
-            printf("]");
+        printf("]");
     } else
     {
-        int i;
-        for(i = 0; i < num; i++)
+        for(int i = 0; i < num; i++)
             printf("%d", i);
             
-        if(i == num)
-            printf("]");
+        printf("]");
     }
 }
 
