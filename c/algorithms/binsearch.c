@@ -8,7 +8,7 @@ int binsearch(int yarr[], int size, int element)
     
     while (left <= right)
     {
-        mid = (left + right) / 2;
+        mid = left + (right - left) / 2;
         
         if (yarr[mid] == element)
         {
