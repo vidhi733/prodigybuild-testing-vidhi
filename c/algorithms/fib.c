@@ -1,19 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
+void fibonacci(int n) {
     long a = 0;
     long b = 1;
     
-    while (b > a)
-    {
-        a++;
-        printf("%ld \n %ld", a, b);
+    for (int i = 0; i < n; i++) {
+        printf("%ld\n", a);
+        long temp = a;
+        a = b;
+        b = temp + b;
     }
-    
-    if (b == sizeof(long))
-    {
-        exit(1);
-    }
+}
+
+int main() {
+    int num;
+    printf("Count:~$ ");
+    scanf("%d", &num);
+    fibonacci(num);
+    return 0;
 }
