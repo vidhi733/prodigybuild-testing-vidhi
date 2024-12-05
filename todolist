@@ -20,29 +20,6 @@ void Insert(int val) {
     head = NewNode;
 }
 
-void Remove(int val) {
-    struct Node* temp = head;
-    struct Node* prev = NULL;
-
-    if (temp != NULL && temp->data == val) {
-        head = temp->next;
-        free(temp);
-        return;
-    }
-
-    while (temp != NULL && temp->data != val) {
-        prev = temp;
-        temp = temp->next;
-    }
-
-    if (temp == NULL) {
-        return;
-    }
-
-    prev->next = temp->next;
-    free(temp);
-}
-
 void View() {
     struct Node* temp = head;
     printf("Todo List:\n");
@@ -58,9 +35,8 @@ int main() {
 
     while (1) {
         printf("\n1. Add task\n");
-        printf("2. Remove task\n");
-        printf("3. View tasks\n");
-        printf("4. Exit\n");
+        printf("2. View tasks\n");
+        printf("3. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -71,14 +47,9 @@ int main() {
                 Insert(value);
                 break;
             case 2:
-                printf("Enter task to remove: ");
-                scanf("%d", &value);
-                Remove(value);
-                break;
-            case 3:
                 View();
                 break;
-            case 4:
+            case 3:
                 printf("Exiting...\n");
                 exit(0);
             default:
