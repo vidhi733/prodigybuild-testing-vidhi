@@ -29,7 +29,7 @@ void View() {
     }
 }
 
-int main() {
+void testLinkedList() {
     head = NULL;
     int choice, value;
 
@@ -56,6 +56,9 @@ int main() {
                 printf("Invalid choice\n");
         }
     }
+}
 
+int main() {
+    testLinkedList();
     return 0;
 }
