@@ -1,54 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(int *a, int *b);
-int partition(int *a, int l, int h);
-void quick_sort(int *a, int l, int h);
 
-void swap(int *a, int *b) {
-    int tmp;
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
+// function to merge the sub-arrays
+void merge(int a[], int low, int mid, int high) {
+    int b[20]; //same size of a[]
+    int i, j, k;
+    i = low, j = mid + 1, k = low;
+    while (i <= mid && j <= high) {
+        if (a[i] <= a[j])
+            b[k++] = a[i++];
+        else
+            b[k++] = a[j++]; //copying the elements 
+    }
+    while (i <= mid)
+        b[k++] = a[i++];
+    while (j <= high)
+        b[k++] = a[j++];
+    for (k = low; k <= high; k++)
+        a[k] = b[k];
 }
 
-int partition(int a[], int l, int h) {
-    int i = l, j = l, p = h;
-    while (i < h) {
-        if (a[i] < a[p]) {
-            swap(&a[i], &a[j]);
-            j++;
-        }
-        i++;
-    }
-    swap(&a[p], &a[j]);
-    return j;
+// merge sort function
+void mergesort(int a[], int low, int high) {
+    if (low >= high)
+        return;
+    int mid = (low + high) / 2;
+    mergesort(a, low, mid);
+    mergesort(a, mid + 1, high);
+    merge(a, low, mid, high);
 }
 
-void quick_sort(int a[], int l, int h) {
-    int p;
-    if (l < h) {
-        p = partition(a, l, h);
-        quick_sort(a, l, p - 1);
-        quick_sort(a, p + 1, h);
-    }
-}
 
-int main() {
-    int size;
-    printf("Size: ");
-    scanf("%d", &size);
-    int *arr = malloc(size * sizeof(int));
-    printf("Array elements: ");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
-    }
-    quick_sort(arr, 0, size - 1);
-    printf("Sorted array:");
-    for (int i = 0; i < size; i++) {
-        printf(" %d", arr[i]);
-    }
-    printf("\n");
-    free(arr);
     return 0;
 }

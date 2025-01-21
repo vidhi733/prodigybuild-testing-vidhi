@@ -3,61 +3,41 @@
 
 void print_arr(int *ptr, int size)
 {
-    putchar('[');
-    while(size--)
+    printf("Before sorting: [");
+    for(int i = 0; i < size; i++)
     {
-        printf("%d", *ptr++);
-        if(size)
-            putchar(',');
     }
     printf("]\n");
 }
 
 void swap(int *a, int *b)
 {
-    int tmp;
-
-    tmp = *a;
+    int tmp = *a;
     *a = *b;
     *b = tmp;
 }
 
 int *find_min(int *ptr, int size)
 {
-    int *min;
-
-    min = ptr;
-    while(size--)
+    int *min = ptr;
+    for(int i = 1; i < size; i++)
     {
-        if(*ptr < *min)
-            min = ptr;
-        ptr++;
+
     }
-    return (min);
+    return min;
 }
 
 void selection_sort(int *ptr, int size)
 {
-    int *min;
-
-    while(--size)
+    for(int i = 0; i < size - 1; i++)
     {
-        if((min = find_min(ptr + 1, size)))
-        {
-            if(*ptr > *min)
-                swap(ptr, min);
-        }
-        ptr++;
+
     }
 }
 
 void fill(char **av, int *ptr, int size)
 {
-    int i;
 
-    i = 2;
-    while(av[i] && size--)
-        *ptr++ = atoi(av[i++]);
 }
 
 int main(int argc, char *argv[])
@@ -79,13 +59,18 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     fill(argv, arr, size);
 
-    printf("Before sorting: ");
     print_arr(arr, size);
 
     selection_sort(arr, size);
 
-    printf("After sorting:  ");
-    print_arr(arr, size);
+    printf("After sorting:  [");
+    for(int i = 0; i < size; i++)
+    {
+        printf("%d", arr[i]);
+        if(i != size - 1)
+            printf(", ");
+    }
+    printf("]\n");
 
     free(arr);
     return EXIT_SUCCESS;
