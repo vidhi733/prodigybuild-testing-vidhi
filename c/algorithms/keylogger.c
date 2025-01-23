@@ -18,6 +18,8 @@ int keylog()
     
     if(hour == 24)
         fclose(fPtr);
+    
+    return 0;
 }
 
 int main()
