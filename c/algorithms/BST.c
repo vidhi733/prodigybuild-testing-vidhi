@@ -66,3 +66,7 @@ int main() {
     }
     return 0;
 }
+
+// <p><strong>SonarCloud Analysis:</strong> Issues Detected in c/algorithms/BST.c. Below are the detected issues with details.</p>
+// <ul><li><strong>Line 49:</strong> Define each identifier in a dedicated statement. <em>(Severity: MINOR)</em> <span>Location: offsets 4 to 23</span><li><strong>Line 65:</strong> Potential leak of memory pointed to by 'RootPtr' <em>(Severity: BLOCKER)</em> <span>Location: offsets 8 to 14</span></ul>
+// Resolve SonarCloud issues in c by validating inputs, implementing secure authentication, preventing injection vulnerabilities, conducting regular security audits, and ensuring continuous improvement of the code's security posture. Additionally, conduct regular security audits to identify and resolve potential vulnerabilities, address hotspots, and ensure continuous improvement of the code's security posture.
