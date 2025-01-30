@@ -10,19 +10,19 @@ struct Node {
 struct Node *head;
 
 struct Node *CreateNode() {
-    struct Node *new = (struct Node*) malloc(sizeof(struct Node));
-    return new;
+    struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));
+    return newNode;
 }
 
 void Insert(int val) { /*Inserting element at head*/
-    struct Node *NewNode = CreateNode(); /*NewNode is created everytime function is called*/
-    NewNode->value = val; /*Value assigned to NewNode*/
-    NewNode->next = head; /*NewNode's next points to head*/
-    NewNode->prev = NULL; /*NewNode's previous points to NULL*/
+    struct Node *newNode = CreateNode(); /*NewNode is created everytime function is called*/
+    newNode->value = val; /*Value assigned to NewNode*/
+    newNode->next = head; /*NewNode's next points to head*/
+    newNode->prev = NULL; /*NewNode's previous points to NULL*/
     if (head != NULL) { 
-        head->prev = NewNode;
+        head->prev = newNode;
     }
-    head = NewNode;
+    head = newNode;
 }
 
 void Display() {

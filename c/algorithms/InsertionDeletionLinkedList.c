@@ -34,7 +34,15 @@ void InsertAtnthNode(int pos , int value) {
         NewNode->data = value;
         NewNode->next = NULL;
         for (int i=0; i<pos-2; i++) {
+            if (temp == NULL) {
+                printf("\n\t**Invalid position**\n");
+                return;
+            }
             temp = temp->next; /*Accessing (n-1)th node*/
+        }
+        if (temp == NULL) {
+            printf("\n\t**Invalid position**\n");
+            return;
         }
         NewNode->next = temp->next; /*Linking nth node to (n+1)th node*/
         temp->next = NewNode; /*Linking (n-1)th node to nth node*/
@@ -60,7 +68,9 @@ void DeleteAtBegin() {
     if (head == NULL) { /*Does not work when list is empty. Underflow situation...*/
         printf("\n\t**No element exists**\n");
     } else {
+        struct node *temp = head;
         head = head->next; /*2nd node is now declared as head*/
+        free(temp);
         printf("\n\t**Element deleted successfully**\n");
     }
 }
@@ -75,8 +85,8 @@ void DeleteAtEnd() {
         while(temp->next->next!=NULL) { /*Accessing (n-1)th node*/
             temp = temp->next;
         }
-        temp->next = NULL; /*(n-1)th node will now point to null instead of nth node*/
-        free(temp->next);
+        free(temp->next); /*(n-1)th node will now point to null instead of nth node*/
+        temp->next = NULL;
         printf("\n\t**Element deleted successfully**\n");
     }
 }
@@ -87,7 +97,15 @@ void DeletenthNode(int pos) {
         printf("\n\t**Use Delete at begining**\n");
     } else {
         for (int i=0; i<pos-2; i++) {
+            if (temp == NULL) {
+                printf("\n\t**Invalid position**\n");
+                return;
+            }
             temp = temp->next;
+        }
+        if (temp == NULL || temp->next == NULL) {
+            printf("\n\t**Invalid position**\n");
+            return;
         }
         struct node *temp2 = temp->next; /*Accessing nth node, which we want to delete*/
         temp->next = temp2->next; /*(n-1) node is pointing to (n+1) node now. Breaking the link between (n-1),n,(n+1) nodes.*/

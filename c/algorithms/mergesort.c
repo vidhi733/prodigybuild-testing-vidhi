@@ -8,10 +8,10 @@ struct BST {
 };
 
 struct BST* CreateNode() {
-    struct BST* new = (struct BST*)malloc(sizeof(struct BST));
-    new->left = NULL;
-    new->right = NULL;
-    return new;
+    struct BST* new_node = (struct BST*)malloc(sizeof(struct BST));
+    new_node->left = NULL;
+    new_node->right = NULL;
+    return new_node;
 }
 
 void Insert(struct BST** RootPtr, int value) {
@@ -60,9 +60,9 @@ int main() {
     printf("\nEnter element to search: ");
     scanf("%d", &key);
     if (Search(RootPtr, key) == 0) {
-        printf("\nFound\n");
-    } else {
         printf("\nNot Found\n");
+    } else {
+        printf("\nFound\n");
     }
     return 0;
 }

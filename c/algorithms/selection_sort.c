@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_arr(int *ptr, int size)
+void print_arr(const int *ptr, int size)
 {
     putchar('[');
     while(size--)
@@ -33,7 +33,7 @@ int *find_min(int *ptr, int size)
             min = ptr;
         ptr++;
     }
-    return (min);
+    return min;
 }
 
 void selection_sort(int *ptr, int size)

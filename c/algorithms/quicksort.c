@@ -11,7 +11,17 @@ int main()
     printf("Size: ");
     scanf("%d", &size);
 
+    if (size <= 0) {
+        printf("Invalid size\n");
+        return 0;
+    }
+
     int *arr = malloc(size * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed\n");
+        return 0;
+    }
+
     printf("Array elements: ");
     for (int i = 0; i < size; i++)
     {
