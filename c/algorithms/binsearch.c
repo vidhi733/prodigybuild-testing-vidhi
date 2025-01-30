@@ -11,6 +11,7 @@ int binsearch(const int *yarr, int element)
     if (element == yarr[mid])
     {
         printf("%d", yarr[mid]);
+        return 0; // Added return statement
     }
 
     if (element != yarr[right])
@@ -20,9 +21,11 @@ int binsearch(const int *yarr, int element)
             if (element == yarr[i])
             {
                 printf("%d", yarr[i]);
+                return 0; // Added return statement
             }
         }
     }
+    return 0; // Added return statement
 }
 
 int main(int argc, char *argv[])
